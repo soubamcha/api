@@ -1,7 +1,5 @@
 # Lumen API Testing
 
-[![Latest Stable Version]0.0]
-
 Laravel Lumen project.
 
 ## Official Documentation
