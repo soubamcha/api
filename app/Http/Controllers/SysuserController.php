@@ -12,7 +12,8 @@ class SysuserController extends Controller
     public function index()
     {
         $sysusers = Sysuser::all();
-        return response()->json($sysusers);
+        // return response()->json($sysusers);
+        return response()->json($sysusers, 200, array(), JSON_PRETTY_PRINT);
     }
     
     public function create(Request $request)
@@ -22,30 +23,32 @@ class SysuserController extends Controller
         $sysuser->designation= $request->designation;
         $sysuser->description= $request->description;
         $sysuser->save();
-        return response()->json($sysuser);
+        // return response()->json($sysuser);
+        return response()->json($sysuser, 200, array(), JSON_PRETTY_PRINT);
     }
     
     public function show($id)
     {
         $sysuser = Sysuser::find($id);
-        return response()->json($sysuser);
+        // return response()->json($sysuser);
+        return response()->json($sysuser, 200, array(), JSON_PRETTY_PRINT);
     }
     
     public function update(Request $request, $id)
     { 
-        $sysuser= Sysuser::find($id);
+        $sysuser = Sysuser::find($id);
         
         $sysuser->name = $request->input('name');
-        $sysuser->price = $request->input('designation');
+        $sysuser->designation = $request->input('designation');
         $sysuser->description = $request->input('description');
         $sysuser->save();
-        return response()->json($sysuser);
+        return response()->json($sysuser, 200, array(), JSON_PRETTY_PRINT);
     }
 
     public function destroy($id)
     {
         $sysuser = Sysuser::find($id);
         $sysuser->delete();
-        return response()->json('Sysuser removed successfully');
+        return response()->json(['message' => 'Sysuser removed successfully'], 200, array(), JSON_PRETTY_PRINT);
     }
 }

@@ -25,7 +25,7 @@ $router->get('/hello', function () use ($router) {
 });
 
 $router->group(['prefix'=>'api/'], function() use($router){
-    $router->get('/sysusers', 'SysuserController@index');
+    $router->get('/sysuser', 'SysuserController@index');
     $router->post('/sysuser', 'SysuserController@create');
     $router->get('/sysuser/{id}', 'SysuserController@show');
     $router->put('/sysuser/{id}', 'SysuserController@update');
