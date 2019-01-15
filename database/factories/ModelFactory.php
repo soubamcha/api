@@ -17,3 +17,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->email,
     ];
 });
+
+$factory->define(App\Sysuser::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'designation' => $faker->email,
+        'description'=>$faker->text,
+    ];
+});

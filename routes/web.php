@@ -23,3 +23,11 @@ $router->get('/time', function () use ($router) {
 $router->get('/hello', function () use ($router) {
     return response()->json(['message' => "Hello World!"], 200, array(), JSON_PRETTY_PRINT);
 });
+
+$router->group(['prefix'=>'api/'], function() use($router){
+    $router->get('/sysusers', 'SysuserController@index');
+    $router->post('/sysuser', 'SysuserController@create');
+    $router->get('/sysuser/{id}', 'SysuserController@show');
+    $router->put('/sysuser/{id}', 'SysuserController@update');
+    $router->delete('/sysuser/{id}', 'SysuserController@destroy');
+});
